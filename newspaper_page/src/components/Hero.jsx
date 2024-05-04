@@ -3,29 +3,30 @@ import React from "react";
 const Hero = () => {
   return (
     <div className="lg:w-[70vw] w-full mx-auto">
-      <div className="mt-4 flex gap-4">
+      <div className="mt-4 flex gap-4 flex-wrap lg:flex-nowrap justify-center ">
         <div>
-          <img src="/img_desktop.jpg" className="w-[50vw]" alt="" />
-          <div className="flex justify-between">
-            <div className="mt-4">
+          <img src="/mobile.jpg" className="block w-screen lg:hidden" alt="" />
+          <img src="/img_desktop.jpg" className="w-[50vw] hidden lg:block" alt="" />
+          <div className="flex lg:justify-between justify-center    flex-col lg:flex-row">
+            <div className="mt-4 px-4 lg:px-0 mx-auto">
               <h1 className="text-5xl font-bold">The Bright</h1>
               <h1 className="text-5xl font-bold">Future Of</h1>
               <h1 className="text-5xl font-bold">Web 3.0?</h1>
             </div>
 
-            <div className="w-[22vw]">
-              <p className="w-[350px] text-left mt-4 text-[#8F8D99]">
+            <div className="lg:w-[22vw] px-4 lg:px-0 w-screen mx-auto text-center lg:text-left">
+              <p className="w-[350px] lg:text-left text-center mx-auto mt-4 text-[#8F8D99]">
                 We dive into the next evolution of the web that claims to put
                 the power of the platforms back into the hands of the people.
                 But is it really fulfilling the promis?
               </p>
-              <button className="border-2 bg-[#EF5E51] hover:bg-black hover:duration-300 hover:text-white px-7 py-2 tracking-2 mt-4 text-white">
+              <button className="border-2   bg-[#EF5E51] hover:bg-black hover:duration-300 hover:text-white px-7 py-2 mt-4 text-white">
                 READ MORE
               </button>
             </div>
           </div>
         </div>
-        <div className="bg-black w-[300px] text-white px-4">
+        <div className="bg-black w-[300px] text-white flex flex-col justify-center px-4">
           <h1 className="text-[rgb(237,167,79)] text-3xl font-semibold mb-4 mt-7">
             New
           </h1>
@@ -52,7 +53,7 @@ const Hero = () => {
           <hr />
         </div>
       </div>
-      <div className="flex gap-16 mt-4">
+      <div className="flex gap-16 justify-center px-4 py-4 lg:px-0 lg:py-0 mt-4 flex-wrap lg:flex-nowrap">
         <div className="flex gap-4 mt-8">
           <img src="/1.jpg" width={100} alt="" />
           <div>
