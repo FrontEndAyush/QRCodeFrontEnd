@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import Badge from '@mui/material/Badge';
 
-const Navbar = () => {
+const Navbar = ({ setCartShow, cartShow,counter }) => {
   let [isTrue, setIsTrue] = useState(true);
 
   function toggle() {
     setIsTrue(!isTrue);
+  }
+
+  function isCartShow() {
+    setCartShow(!cartShow);
   }
   return (
     <nav className="lg:w-[72vw] w-screen px-8  lg:px-0 mx-auto mt-7 flex justify-between">
@@ -51,11 +56,14 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <img
-          src="/images/icon-cart.svg"
-          className="w-[20px]  h-[20px]"
-          alt=""
-        />
+        <Badge badgeContent={counter} color="primary">
+          <img
+            src="/images/icon-cart.svg"
+            onClick={isCartShow}
+            className="w-[20px]  cursor-pointer h-[20px]"
+            alt=""
+          />
+        </Badge>
         <img
           src="/images/avtar.png "
           className="lg:w-[40px] w-[30px] hover:border-2 hover:rounded-full cursor-pointer duration-300 hover:border-orange-400"
