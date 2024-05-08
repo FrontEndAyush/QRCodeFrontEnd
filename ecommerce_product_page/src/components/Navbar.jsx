@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({ setCartShow, cartShow }) => {
   let [isTrue, setIsTrue] = useState(true);
 
   function toggle() {
     setIsTrue(!isTrue);
+  }
+
+  function isCartShow() {
+    setCartShow(!cartShow);
   }
   return (
     <nav className="lg:w-[72vw] w-screen px-8  lg:px-0 mx-auto mt-7 flex justify-between">
@@ -53,7 +57,8 @@ const Navbar = () => {
       <div className="flex items-center gap-4">
         <img
           src="/images/icon-cart.svg"
-          className="w-[20px]  h-[20px]"
+          onClick={isCartShow}
+          className="w-[20px]  cursor-pointer h-[20px]"
           alt=""
         />
         <img
