@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <Navbar cartShow={cartShow} counter= {counter} setCartShow={setCartShow}></Navbar>
-      <Card cartShow={cartShow} cartItemShow = {cartItemShow} counter={counter} setCounter={setCounter} setCartItemShow = {setCartItemShow}></Card>
+      <Card cartShow={cartShow} setCartShow = {setCartShow} cartItemShow = {cartItemShow} counter={counter} setCounter={setCounter} setCartItemShow = {setCartItemShow}></Card>
     </>
   );
 }

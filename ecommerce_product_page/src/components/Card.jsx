@@ -2,20 +2,46 @@ import React, { useState } from "react";
 import { FiMinus } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+
 const Card = ({
   cartShow,
   cartItemShow,
   setCartItemShow,
   counter,
   setCounter,
+  setCartShow,
 }) => {
   let [img, setImg] = useState("1");
+  let [showBigImg, setShowBigImg] = useState(false);
+  let arrOfImages = [
+    "/cardImages/2.jpg",
+    "/cardImages/3.jpg",
+    "/cardImages/4.jpg",
+    "/cardImages/1.jpg",
+  ];
 
   function changeImage(img) {
     setImg(img);
   }
 
+  function changeImageOnArrowClickNext() {
+    if (img == 4) {
+      setImg(1);
+    } else {
+      setImg(Number(img) + 1);
+    }
+  }
+  function changeImageOnArrowClickPrevious() {
+    if (img == 0 || img == 1) {
+      setImg(4);
+    } else {
+      setImg(Number(img) - 1);
+    }
+    console.log(img);
+  }
+
   function incrementCounter() {
+    setCartItemShow(true);
     setCounter((previousValue) => previousValue + 1);
   }
   function decrementCounter() {
@@ -34,19 +60,40 @@ const Card = ({
     setCounter(0);
     setCartItemShow(false);
   }
+
+  function isShowBigImg() {
+    if (window.innerWidth < 1024) {
+      return;
+    }
+    setShowBigImg(!showBigImg);
+    setCartShow(false);
+  }
   return (
-    <div className="lg:w-[68vw] py-[70px] mx-auto flex justify-between gap-0">
+    <div className="lg:w-[68vw] py-[70px] mx-auto flex justify-between flex-wrap lg:flex-nowrap gap-0">
       {/* first  */}
       <div>
         <img
-          src={`/cardImages/${img}.jpg`}
-          className="w-11/12 cursor-pointer rounded-lg"
+          src="/images/icon-previous.svg"
+          className="absolute top-[250px] left-0"
           alt=""
+          onClick={changeImageOnArrowClickPrevious}
         />
-        <div className="flex  gap-5 mt-3">
+        <img
+          src={`/cardImages/${img}.jpg`}
+          className="lg:w-11/12  w-screen cursor-none lg:cursor-pointer -mt-10 lg:-mt-0 lg:rounded-lg"
+          alt=""
+          onClick={isShowBigImg}
+        />
+        <img
+          src="/images/icon-next.svg"
+          className="absolute top-[250px] cursor-pointer right-0"
+          alt=""
+          onClick={changeImageOnArrowClickNext}
+        />
+        <div className="flex  gap-4 mt-3 ">
           <img
             src="/cardImages/1th.jpg"
-            className={`w-[92px] cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[92px] ${
               img == 1 && "border-2 opacity-70 border-orange-500"
             }`}
             alt=""
@@ -54,7 +101,7 @@ const Card = ({
           />
           <img
             src="/cardImages/2th.jpg"
-            className={`w-[92px] cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 2 && "border-2 opacity-70 border-orange-500"
             }`}
             alt=""
@@ -62,7 +109,7 @@ const Card = ({
           />
           <img
             src="/cardImages/3th.jpg"
-            className={`w-[92px] cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px]  hidden lg:block  cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 3 && "border-2 opacity-70  border-orange-500"
             }`}
             alt=""
@@ -70,7 +117,7 @@ const Card = ({
           />
           <img
             src="/cardImages/4th.jpg"
-            className={`w-[92px] cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
+            className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 4 && "border-2 opacity-70  border-orange-500"
             }`}
             alt=""
@@ -78,16 +125,38 @@ const Card = ({
           />
         </div>
       </div>
-      <div className="absolute bg-gray-100 flex flex-col  justify-center items-center right-0 bg-gray- top-0 h-full left-0 pl-[0px]">
+      <div
+        className={`absolute ${
+          showBigImg == true ? "block" : "hidden"
+        }  bg-black overflow-auto  bg-opacity-40 flex flex-col  justify-center items-center right-0 bg-gray- top-0 h-full left-0 pl-[0px]`}
+      >
+        <img
+          src="/images/icon-previous.svg"
+          className="absolute top-[300px] left-[470px]"
+          alt=""
+          onClick={changeImageOnArrowClickPrevious}
+        />
         <img
           src={`/cardImages/${img}.jpg`}
-          className="w-5/12 cursor-pointer rounded-lg"
+          className="w-4/12 cursor-pointer rounded-lg"
           alt=""
         />
-        <div className="flex mt-2 gap-14 mt-1  ">
+        <img
+          src="/images/icon-next.svg"
+          className="absolute top-[300px] cursor-pointer right-[470px]"
+          alt=""
+          onClick={changeImageOnArrowClickNext}
+        />
+        <img
+          src="/images/icon-close.svg "
+          onClick={isShowBigImg}
+          className="absolute top-[30px] lg:cursor-pointer w-[20px]  cursor-pointer right-[500px]"
+          alt=""
+        />
+        <div className="flex   gap-4  mt-2  ">
           <img
             src="/cardImages/1th.jpg"
-            className={`w-[110px] cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[110px] ${
+            className={`w-[110px] lg:cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[110px] ${
               img == 1 && "border-2 opacity-70 border-orange-500"
             }`}
             alt=""
@@ -96,7 +165,7 @@ const Card = ({
           <img
             src="/cardImages/2th.jpg"
             className={`w-[110px]  cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[110px]  ${
-              img == 2 && "border-2 opacity-70 border-orange-500"
+              img == 2 && "border-2 opacity-90 border-orange-500"
             }`}
             alt=""
             onClick={() => changeImage("2")}
@@ -121,9 +190,11 @@ const Card = ({
       </div>
 
       {/* second   */}
-      <div className="py-10 ml-5">
-        <h1 className="font-semibold text-[#F5873E] mb-3">SNEAKER COMPANY</h1>
-        <h1 className="text-4xl font-bold mb-5 ">
+      <div className="lg:py-10  lg:ml-5  px-4">
+        <h1 className="font-semibold text-[#F5873E] mb-3  sm:text-[16px]">
+          SNEAKER COMPANY
+        </h1>
+        <h1 className="lg:text-4xl text-[25px] font-bold  mb-5 ">
           Fall Limited Addition Sneakers
         </h1>
         <p className="text-[#97989E]">
@@ -147,7 +218,7 @@ const Card = ({
           <div>
             <button
               onClick={isCartItemShow}
-              className=" border-2 hover:bg-[#FFAC6A] duration-300 font-bold px-14 py-2 rounded-lg ml-5 bg-[#FF7D1B] text-white"
+              className=" border-2 hover:bg-[#FFAC6A] py-2 px-[12vw] duration-300 font-bold lg:px-14 lg:py-2 rounded-lg ml-5 bg-[#FF7D1B] text-white"
             >
               Add to cart
             </button>
@@ -155,7 +226,7 @@ const Card = ({
         </div>
         {cartShow && (
           <>
-            <div className="w-[300px] h-[220px] border  absolute top-[80px] rounded-lg bg-white right-[210px]">
+            <div className="w-[300px] h-[220px] border  absolute lg:top-[80px] rounded-lg bg-white top-[85px] lg:left-0 right-[20px] lg:right-[210px]">
               {cartItemShow === true ? (
                 <>
                   <h1 className=" p-5 font-semibold">Cart</h1>
