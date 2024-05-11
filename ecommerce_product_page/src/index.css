@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+<<<<<<< HEAD
 body {
   width: 100%;
   height: 100%;
@@ -10,3 +11,14 @@ body {
   padding: 0px;
   box-sizing: border-box;
 }
+=======
+body{
+  width: 100%;
+  height: 100%;
+}
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea

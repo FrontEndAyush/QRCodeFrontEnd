@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FiMinus } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
+<<<<<<< HEAD
 
 const Card = ({
   cartShow,
@@ -20,10 +21,17 @@ const Card = ({
     "/cardImages/1.jpg",
   ];
 
+=======
+const Card = ({ cartShow, cartItemShow, setCartItemShow }) => {
+  let [img, setImg] = useState("1");
+
+  let [counter, setCounter] = useState(1);
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
   function changeImage(img) {
     setImg(img);
   }
 
+<<<<<<< HEAD
   function changeImageOnArrowClickNext() {
     if (img == 4) {
       setImg(1);
@@ -42,6 +50,9 @@ const Card = ({
 
   function incrementCounter() {
     setCartItemShow(true);
+=======
+  function incrementCounter() {
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
     setCounter((previousValue) => previousValue + 1);
   }
   function decrementCounter() {
@@ -53,6 +64,7 @@ const Card = ({
   }
 
   function isCartItemShow() {
+<<<<<<< HEAD
     setCounter(counter++);
     setCartItemShow(true);
   }
@@ -96,27 +108,53 @@ const Card = ({
             className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70 duration-300 rounded-lg h-[92px] ${
               img == 1 && "border-2 opacity-70 border-orange-500"
             }`}
+=======
+    setCartItemShow(true);
+  }
+  return (
+    <div className="lg:w-[68vw] py-[70px] mx-auto flex justify-between gap-0">
+      {/* first  */}
+      <div>
+        <img
+          src={`/cardImages/${img}.jpg`}
+          className="w-11/12 rounded-lg"
+          alt=""
+        />
+        <div className="flex  gap-6 mt-3">
+          <img
+            src="/cardImages/1th.jpg"
+            className="w-[92px] cursor-pointer rounded-lg h-[92px]"
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             alt=""
             onClick={() => changeImage("1")}
           />
           <img
             src="/cardImages/2th.jpg"
+<<<<<<< HEAD
             className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 2 && "border-2 opacity-70 border-orange-500"
             }`}
+=======
+            className="w-[92px] cursor-pointer rounded-lg h-[92px]"
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             alt=""
             onClick={() => changeImage("2")}
           />
           <img
             src="/cardImages/3th.jpg"
+<<<<<<< HEAD
             className={`w-[92px]  hidden lg:block  cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 3 && "border-2 opacity-70  border-orange-500"
             }`}
+=======
+            className="w-[92px]  cursor-pointer rounded-lg h-[92px]"
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             alt=""
             onClick={() => changeImage("3")}
           />
           <img
             src="/cardImages/4th.jpg"
+<<<<<<< HEAD
             className={`w-[92px] hidden lg:block cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[92px] ${
               img == 4 && "border-2 opacity-70  border-orange-500"
             }`}
@@ -183,6 +221,9 @@ const Card = ({
             className={`w-[110px]  cursor-pointer  hover:opacity-70  duration-300 rounded-lg h-[110px]  ${
               img == 4 && "border-2 opacity-70  border-orange-500"
             }`}
+=======
+            className="w-[92px]  cursor-pointer rounded-lg h-[92px]"
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             alt=""
             onClick={() => changeImage("4")}
           />
@@ -190,11 +231,17 @@ const Card = ({
       </div>
 
       {/* second   */}
+<<<<<<< HEAD
       <div className="lg:py-10  lg:ml-5  px-4">
         <h1 className="font-semibold text-[#F5873E] mb-3  sm:text-[16px]">
           SNEAKER COMPANY
         </h1>
         <h1 className="lg:text-4xl text-[25px] font-bold  mb-5 ">
+=======
+      <div className="py-10 ml-5">
+        <h1 className="font-semibold text-[#F5873E] mb-3">SNEAKER COMPANY</h1>
+        <h1 className="text-4xl font-bold mb-5 ">
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
           Fall Limited Addition Sneakers
         </h1>
         <p className="text-[#97989E]">
@@ -218,7 +265,11 @@ const Card = ({
           <div>
             <button
               onClick={isCartItemShow}
+<<<<<<< HEAD
               className=" border-2 hover:bg-[#FFAC6A] py-2 px-[12vw] duration-300 font-bold lg:px-14 lg:py-2 rounded-lg ml-5 bg-[#FF7D1B] text-white"
+=======
+              className=" border-2 hover:bg-[#FFAC6A] duration-300 font-bold px-14 py-2 rounded-lg ml-5 bg-[#FF7D1B] text-white"
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             >
               Add to cart
             </button>
@@ -226,8 +277,13 @@ const Card = ({
         </div>
         {cartShow && (
           <>
+<<<<<<< HEAD
             <div className="w-[300px] h-[220px] border  absolute lg:top-[80px] rounded-lg bg-white top-[85px] lg:left-0 right-[20px] lg:right-[210px]">
               {cartItemShow === true ? (
+=======
+            <div className="w-[300px] h-[220px] border  absolute top-[80px] rounded-lg bg-white right-[210px]">
+              {cartItemShow === true ?  (
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
                 <>
                   <h1 className=" p-5 font-semibold">Cart</h1>
                   <hr />
@@ -243,15 +299,20 @@ const Card = ({
                         $125.00 x {counter} <b>${125 * counter}.00</b>
                       </p>
                     </div>
+<<<<<<< HEAD
                     <MdDelete
                       onClick={notShowCartItem}
                       className="text-4xl cursor-pointer"
                     />
+=======
+                    <MdDelete onClick={() => setCartItemShow(false)} className="text-4xl cursor-pointer" />
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
                   </div>
                   <button className=" border-2 hover:bg-[#FFAC6A] duration-300 font-bold px-24  py-2 rounded-lg ml-5 bg-[#FF7D1B] text-white">
                     Checkout
                   </button>
                 </>
+<<<<<<< HEAD
               ) : (
                 <>
                   <h1 className="text-center text-[#808187] mt-[100px] font-semibold">
@@ -259,6 +320,9 @@ const Card = ({
                   </h1>
                 </>
               )}
+=======
+              ): (<><h1 className="text-center text-[#808187] mt-[100px] font-semibold">Your cart is empty.</h1></>)}
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
             </div>
           </>
         )}

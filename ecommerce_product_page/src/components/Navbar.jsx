@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Badge from "@mui/material/Badge";
 
+<<<<<<< HEAD
 const Navbar = ({ setCartShow, cartShow, counter }) => {
+=======
+const Navbar = ({ setCartShow, cartShow }) => {
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
   let [isTrue, setIsTrue] = useState(true);
 
   function toggle() {
@@ -71,6 +75,7 @@ const Navbar = ({ setCartShow, cartShow, counter }) => {
           </div>
         </div>
 
+<<<<<<< HEAD
         <div className="flex items-center gap-4">
           <Badge badgeContent={counter} color="primary">
             <img
@@ -89,6 +94,22 @@ const Navbar = ({ setCartShow, cartShow, counter }) => {
       </nav>
       <hr className="lg:w-[72vw] mx-auto mt-2" />
     </>
+=======
+      <div className="flex items-center gap-4">
+        <img
+          src="/images/icon-cart.svg"
+          onClick={isCartShow}
+          className="w-[20px]  cursor-pointer h-[20px]"
+          alt=""
+        />
+        <img
+          src="/images/avtar.png "
+          className="lg:w-[40px] w-[30px] hover:border-2 hover:rounded-full cursor-pointer duration-300 hover:border-orange-400"
+          alt=""
+        />
+      </div>
+    </nav>
+>>>>>>> 26751514fbe7a3b44861bb289bad4bbb219e79ea
   );
 };
 
